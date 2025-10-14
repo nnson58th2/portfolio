@@ -129,7 +129,7 @@ const technicalSkills = [
 ];
 
 const stats = [
-  { label: 'Technologies', value: '12+', icon: '🛠️' },
+  { label: 'Technologies', value: `${technicalSkills.length}+`, icon: '🛠️' },
   { label: 'Projects', value: '15+', icon: '🚀' },
   { label: 'Experience', value: '3+', icon: '⚡' },
   { label: 'Coffee Cups', value: '∞', icon: '☕' },
@@ -269,7 +269,7 @@ export default function Skills() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 2.2 }}
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center"
         >
