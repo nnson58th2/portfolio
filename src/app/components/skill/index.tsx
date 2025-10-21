@@ -22,6 +22,7 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 import { motion } from 'framer-motion';
+import { ThemeType } from '@/types';
 
 const technicalSkills = [
   {
@@ -135,12 +136,12 @@ const stats = [
   { label: 'Coffee Cups', value: '∞', icon: '☕' },
 ];
 
-export default function Skills() {
-  const currentTheme = {
-    primary: 'from-orange-500 to-red-600',
-    secondary: 'from-yellow-400 to-orange-500',
-    accent: 'from-red-400 to-pink-500',
-  };
+interface SkillsProps {
+  currentTheme: ThemeType;
+}
+
+const Skills = (props: SkillsProps) => {
+  const { currentTheme } = props;
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
@@ -302,4 +303,6 @@ export default function Skills() {
       </div>
     </section>
   );
-}
+};
+
+export default Skills;

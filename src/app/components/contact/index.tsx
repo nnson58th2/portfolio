@@ -4,13 +4,14 @@ import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 import ContactForm from './form';
+import { ThemeType } from '@/types';
 
-const Contact = () => {
-  const currentTheme = {
-    primary: 'from-orange-500 to-red-600',
-    secondary: 'from-yellow-400 to-orange-500',
-    accent: 'from-red-400 to-pink-500',
-  };
+interface ContactProps {
+  currentTheme: ThemeType;
+}
+
+const Contact = (props: ContactProps) => {
+  const { currentTheme } = props;
 
   return (
     <section id="contact" className="py-16 md:py-24 relative overflow-hidden">

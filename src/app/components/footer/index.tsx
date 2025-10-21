@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaCode, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { ThemeType } from '@/types';
 
 const footerSocials = [
   {
@@ -24,12 +25,12 @@ const footerSocials = [
   },
 ];
 
-export default function Footer() {
-  const currentTheme = {
-    primary: 'from-orange-500 to-red-600',
-    secondary: 'from-yellow-400 to-orange-500',
-    accent: 'from-red-400 to-pink-500',
-  };
+interface FooterProps {
+  currentTheme: ThemeType;
+}
+
+const Footer = (props: FooterProps) => {
+  const { currentTheme } = props;
 
   return (
     <footer className="py-12 md:py-16 border-t border-white/10 bg-black/20 backdrop-blur-sm">
@@ -119,4 +120,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

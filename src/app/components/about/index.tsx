@@ -1,12 +1,13 @@
 'use client';
 import { motion } from 'framer-motion';
+import { ThemeType } from '@/types';
 
-const About = () => {
-  const currentTheme = {
-    primary: 'from-orange-500 to-red-600',
-    secondary: 'from-yellow-400 to-orange-500',
-    accent: 'from-red-400 to-pink-500',
-  };
+interface AboutProps {
+  currentTheme: ThemeType;
+}
+
+const About = (props: AboutProps) => {
+  const { currentTheme } = props;
 
   return (
     <section id="about" className="py-24 relative">

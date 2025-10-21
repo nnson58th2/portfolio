@@ -8,6 +8,7 @@ import {
   FaStar,
 } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { ThemeType } from '@/types';
 
 const homeSocials = [
   {
@@ -24,16 +25,16 @@ const homeSocials = [
   },
 ];
 
-const Home = () => {
+interface HomeProps {
+  currentTheme: ThemeType;
+}
+
+const Home = (props: HomeProps) => {
+  const { currentTheme } = props;
+
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  const currentTheme = {
-    primary: 'from-orange-500 to-red-600',
-    secondary: 'from-yellow-400 to-orange-500',
-    accent: 'from-red-400 to-pink-500',
-  };
 
   return (
     <section

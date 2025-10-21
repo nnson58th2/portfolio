@@ -21,7 +21,7 @@ const navItems = [
   { name: 'Contact', href: '#contact', icon: Mail },
 ];
 
-const Page = () => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -201,4 +201,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Navbar;

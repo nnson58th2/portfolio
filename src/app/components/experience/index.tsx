@@ -1,13 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ThemeType } from '@/types';
 
-const Experience = () => {
-  const currentTheme = {
-    primary: 'from-orange-500 to-red-600',
-    secondary: 'from-yellow-400 to-orange-500',
-    accent: 'from-red-400 to-pink-500',
-  };
+interface ExperienceProps {
+  currentTheme: ThemeType;
+}
+
+const Experience = (props: ExperienceProps) => {
+  const { currentTheme } = props;
 
   return (
     <section id="experience" className="py-16 md:py-24 relative">
