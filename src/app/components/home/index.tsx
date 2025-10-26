@@ -39,7 +39,7 @@ const Home = (props: HomeProps) => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-32"
+      className="relative min-h-screen flex items-center justify-center px-6 pt-24"
     >
       <motion.div
         className="max-w-6xl mx-auto text-center"
@@ -135,7 +135,7 @@ const Home = (props: HomeProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          className="flex justify-center mb-12"
         >
           <motion.a
             href="./cv.pdf"
