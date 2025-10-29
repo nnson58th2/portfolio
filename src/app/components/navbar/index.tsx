@@ -6,7 +6,7 @@ import {
   Home,
   User,
   Code,
-  Briefcase,
+  // Briefcase,
   Mail,
   Award,
 } from 'lucide-react';
@@ -17,7 +17,7 @@ const navItems = [
   { name: 'About', href: '#about', icon: User },
   { name: 'Experience', href: '#experience', icon: Award },
   { name: 'Skills', href: '#skills', icon: Code },
-  { name: 'Projects', href: '#projects', icon: Briefcase },
+  // { name: 'Projects', href: '#projects', icon: Briefcase },
   { name: 'Contact', href: '#contact', icon: Mail },
 ];
 
