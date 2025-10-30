@@ -1,11 +1,9 @@
 'use client';
 
+import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { ThemeType } from '@/types';
 
-interface ExperienceProps {
-  currentTheme: ThemeType;
-}
+import { CurrentThemeContext } from '@/app/context/current-theme.context';
 
 const experienceList = [
   {
@@ -87,8 +85,12 @@ const experienceList = [
   },
 ];
 
-const Experience = (props: ExperienceProps) => {
-  const { currentTheme } = props;
+const Experience = () => {
+  const { currentTheme } = useContext(CurrentThemeContext) ?? {};
+
+  if (!currentTheme) {
+    return null;
+  }
 
   return (
     <section id="experience" className="py-16 md:py-24 relative">

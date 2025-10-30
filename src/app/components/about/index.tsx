@@ -1,13 +1,16 @@
 'use client';
+
+import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { ThemeType } from '@/types';
 
-interface AboutProps {
-  currentTheme: ThemeType;
-}
+import { CurrentThemeContext } from '@/app/context/current-theme.context';
 
-const About = (props: AboutProps) => {
-  const { currentTheme } = props;
+const About = () => {
+  const { currentTheme } = useContext(CurrentThemeContext) ?? {};
+
+  if (!currentTheme) {
+    return null;
+  }
 
   return (
     <section id="about" className="py-24 relative">

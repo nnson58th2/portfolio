@@ -1,5 +1,6 @@
 'use client';
 
+import { useContext } from 'react';
 import {
   FaGitAlt,
   FaJsSquare,
@@ -22,7 +23,8 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 import { motion } from 'framer-motion';
-import { ThemeType } from '@/types';
+
+import { CurrentThemeContext } from '@/app/context/current-theme.context';
 
 const technicalSkills = [
   {
@@ -136,12 +138,11 @@ const stats = [
   { label: 'Coffee Cups', value: '∞', icon: '☕' },
 ];
 
-interface SkillsProps {
-  currentTheme: ThemeType;
-}
-
-const Skills = (props: SkillsProps) => {
-  const { currentTheme } = props;
+const Skills = () => {
+  const { currentTheme } = useContext(CurrentThemeContext) ?? {};
+  if (!currentTheme) {
+    return null;
+  }
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden">

@@ -1,15 +1,18 @@
+'use client';
+
+import { useContext } from 'react';
 import { FaCode } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
+import { CurrentThemeContext } from '@/app/context/current-theme.context';
 import Navbar from '@/app/components/navbar';
-import { ThemeType } from '@/types';
 
-interface HeaderProps {
-  currentTheme: ThemeType;
-}
+const Header = () => {
+  const { currentTheme } = useContext(CurrentThemeContext) ?? {};
+  if (!currentTheme) {
+    return null;
+  }
 
-const Header = (props: HeaderProps) => {
-  const { currentTheme } = props;
   return (
     <motion.header
       className="fixed top-0 left-0 w-full z-[9999] backdrop-blur-md bg-black/20 border-b border-white/10"

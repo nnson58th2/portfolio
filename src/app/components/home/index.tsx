@@ -1,5 +1,6 @@
 'use client';
 
+import { useContext } from 'react';
 import {
   FaArrowDown,
   FaEnvelope,
@@ -8,7 +9,8 @@ import {
   FaStar,
 } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ThemeType } from '@/types';
+
+import { CurrentThemeContext } from '@/app/context/current-theme.context';
 
 const homeSocials = [
   {
@@ -25,16 +27,16 @@ const homeSocials = [
   },
 ];
 
-interface HomeProps {
-  currentTheme: ThemeType;
-}
-
-const Home = (props: HomeProps) => {
-  const { currentTheme } = props;
+const Home = () => {
+  const { currentTheme } = useContext(CurrentThemeContext) ?? {};
 
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  if (!currentTheme) {
+    return null;
+  }
 
   return (
     <section

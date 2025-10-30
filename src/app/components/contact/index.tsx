@@ -1,17 +1,18 @@
 'use client';
 
+import { useContext } from 'react';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
+import { CurrentThemeContext } from '@/app/context/current-theme.context';
 import ContactForm from './form';
-import { ThemeType } from '@/types';
 
-interface ContactProps {
-  currentTheme: ThemeType;
-}
+const Contact = () => {
+  const { currentTheme } = useContext(CurrentThemeContext) ?? {};
 
-const Contact = (props: ContactProps) => {
-  const { currentTheme } = props;
+  if (!currentTheme) {
+    return null;
+  }
 
   return (
     <section id="contact" className="py-16 md:py-24 relative overflow-hidden">

@@ -1,8 +1,10 @@
 'use client';
 
+import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import { ThemeType } from '@/types';
+
+import { CurrentThemeContext } from '@/app/context/current-theme.context';
 
 const footerSocials = [
   {
@@ -25,12 +27,11 @@ const footerSocials = [
   },
 ];
 
-interface FooterProps {
-  currentTheme: ThemeType;
-}
-
-const Footer = (props: FooterProps) => {
-  const { currentTheme } = props;
+const Footer = () => {
+  const { currentTheme } = useContext(CurrentThemeContext) ?? {};
+  if (!currentTheme) {
+    return null;
+  }
 
   return (
     <footer className="py-12 md:py-16 border-t border-white/10 bg-black/20 backdrop-blur-sm">
