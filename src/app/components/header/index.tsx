@@ -54,7 +54,7 @@ const Header = () => {
               Son Nguyen
             </motion.span>
             <span className="text-xs text-gray-400 font-medium">
-              Full Stack Developer
+              Software Engineer
             </span>
           </div>
         </motion.div>

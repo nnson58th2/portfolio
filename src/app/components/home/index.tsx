@@ -92,7 +92,7 @@ const Home = () => {
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                Full Stack Developer
+                Software Engineer
               </motion.span>
             </motion.h1>
 

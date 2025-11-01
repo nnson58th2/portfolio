@@ -41,7 +41,7 @@ const experienceList = [
   },
   {
     company: 'Platfox/OTB',
-    title: 'Full Stack Software Engineer',
+    title: 'Full Stack Developer',
     startDate: '10/2020',
     endDate: '05/2022',
     responsibilities: [
