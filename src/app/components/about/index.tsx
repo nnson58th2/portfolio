@@ -71,7 +71,7 @@ const About = () => {
           <div className="relative w-full max-w-sm mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-full blur-3xl opacity-30"></div>
             <img
-              src="/avatar.jpg"
+              src="/avatar.webp"
               alt="Son Nguyen Avatar"
               className="relative w-full h-auto rounded-2xl border-4 border-white/20 shadow-2xl"
             />
@@ -125,7 +125,7 @@ const About = () => {
             <div className="relative w-full max-w-md mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-full blur-3xl opacity-30" />
               <img
-                src="/avatar.jpg"
+                src="/avatar.webp"
                 alt="Son Nguyen Avatar"
                 className="relative w-full h-auto rounded-2xl border-4 border-white/20 shadow-2xl"
               />
