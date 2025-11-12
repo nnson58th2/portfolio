@@ -93,7 +93,7 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-16 md:py-24 relative">
+    <section id="experience" className="py-12 md:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -149,8 +149,6 @@ const Experience = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="hidden md:block absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 opacity-30" />
-
             {experienceList.map((experience, index) => (
               <motion.div
                 key={index}
@@ -159,7 +157,9 @@ const Experience = () => {
                 transition={{ duration: 0.3 }}
                 whileHover={{ scale: 1.02, y: -5 }}
                 viewport={{ once: true }}
-                className="relative md:pl-20 pb-8 md:pb-12 group"
+                className={`relative md:pl-20 group ${
+                  index !== experienceList.length - 1 ? 'pb-8 md:pb-12' : ''
+                }`}
               >
                 <motion.div
                   className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-8 hover:bg-white/10 transition-all duration-300 relative overflow-hidden h-full flex flex-col"

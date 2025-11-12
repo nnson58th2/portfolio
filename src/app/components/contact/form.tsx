@@ -117,7 +117,7 @@ const ContactForm = () => {
 
           <motion.button
             type="submit"
-            className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-lg shadow-lg transition-all"
+            className="mt-6 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-red-500 hover:to-orange-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.5 }}

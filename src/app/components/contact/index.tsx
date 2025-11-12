@@ -15,7 +15,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           className="text-center mb-12 md:mb-16"
