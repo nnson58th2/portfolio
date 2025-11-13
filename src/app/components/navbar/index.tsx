@@ -149,14 +149,8 @@ const Navbar = () => {
       {/* Mobile Menu (Dropdown) */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 min-w-[200px] z-50 shadow-2xl"
-          >
-            <div className="absolute -top-2 right-6 w-4 h-4 bg-black/95 border-l border-t border-white/20 transform rotate-45"></div>
+          <div className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 min-w-[200px] z-50 shadow-2xl">
+            <div className="absolute -top-2 right-4 w-4 h-4 bg-black/95 border-l border-t border-white/20 transform rotate-45"></div>
             {navItems.map((item, index) => {
               const Icon = item.icon;
               const isActive = activeSection === item.href.substring(1);
@@ -165,15 +159,14 @@ const Navbar = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2, delay: index * 0.08 }}
                   className={`w-full flex items-center space-x-3 py-3 px-4 rounded-xl transition-all duration-300 font-medium relative group ${
                     isActive
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                      : 'text-white hover:text-blue-400 hover:bg-white/10'
+                      ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
+                      : 'text-white'
                   }`}
-                  whileHover={{ x: 5 }}
                 >
                   <Icon
                     size={18}
@@ -184,18 +177,10 @@ const Navbar = () => {
                     }`}
                   />
                   <span className="relative z-10">{item.name}</span>
-
-                  {!isActive && (
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      initial={{ scale: 0.8 }}
-                      whileHover={{ scale: 1 }}
-                    />
-                  )}
                 </motion.button>
               );
             })}
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </nav>
