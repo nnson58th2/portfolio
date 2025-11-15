@@ -31,12 +31,9 @@ const Header = () => {
             className={`w-12 h-12 rounded-full bg-gradient-to-r ${currentTheme.primary} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300`}
             animate={{
               rotate: 360,
-              backgroundPosition: ['0% 50%', '50% 50%', '0% 50%'],
-              backgroundSize: ['200% 200%', '200% 200%', '200% 200%'],
             }}
             transition={{
               rotate: { duration: 8, repeat: Infinity, ease: 'linear' },
-              backgroundPosition: { duration: 5, repeat: Infinity },
             }}
             whileHover={{ scale: 1.1 }}
           >
@@ -45,11 +42,6 @@ const Header = () => {
           <div className="flex flex-col">
             <motion.span
               className={`text-xl font-bold bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300`}
-              animate={{
-                backgroundPosition: ['0% 50%', '50% 50%', '0% 50%'],
-                backgroundSize: ['200% 200%', '200% 200%', '200% 200%'],
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
             >
               Son Nguyen
             </motion.span>

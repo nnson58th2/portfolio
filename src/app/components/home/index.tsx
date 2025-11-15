@@ -86,11 +86,6 @@ const Home = () => {
             >
               <motion.span
                 className={`bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent cursor-default`}
-                animate={{
-                  backgroundPosition: ['0% 50%', '50% 50%', '0% 50%'],
-                  backgroundSize: ['200% 200%', '200% 200%', '200% 200%'],
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
               >
                 Software Engineer
               </motion.span>
@@ -113,16 +108,12 @@ const Home = () => {
             I craft{' '}
             <motion.span
               className={`font-bold bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent`}
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
             >
               beautiful
             </motion.span>
             ,{' '}
             <motion.span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
             >
               interactive
             </motion.span>{' '}

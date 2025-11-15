@@ -65,11 +65,6 @@ const Footer = () => {
             <div className="flex flex-col">
               <motion.span
                 className={`text-xl md:text-2xl font-bold bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent`}
-                animate={{
-                  backgroundPosition: ['0% 50%', '50% 50%', '0% 50%'],
-                  backgroundSize: ['200% 200%', '200% 200%', '200% 200%'],
-                }}
-                transition={{ duration: 5, repeat: Infinity }}
               >
                 Son Nguyen
               </motion.span>

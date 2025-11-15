@@ -24,14 +24,7 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.h2
-            className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6"
-            animate={{
-              backgroundPosition: ['0% 50%', '50% 50%', '0% 50%'],
-              backgroundSize: ['200% 200%', '200% 200%', '200% 200%'],
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          >
+          <motion.h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6">
             <span
               className={`bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent`}
             >
@@ -55,8 +48,6 @@ const Contact = () => {
             Ready to bring your{' '}
             <motion.span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
             >
               ideas to life
             </motion.span>

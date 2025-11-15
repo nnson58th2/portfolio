@@ -102,14 +102,7 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <motion.h2
-            className="text-4xl md:text-6xl font-bold mb-6"
-            animate={{
-              backgroundPosition: ['0% 50%', '50% 50%', '0% 50%'],
-              backgroundSize: ['200% 200%', '200% 200%', '200% 200%'],
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          >
+          <motion.h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span
               className={`bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent`}
             >
@@ -133,8 +126,6 @@ const Experience = () => {
             My professional journey in{' '}
             <motion.span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
             >
               software development
             </motion.span>

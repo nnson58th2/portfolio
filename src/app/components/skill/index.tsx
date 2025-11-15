@@ -154,14 +154,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2
-            className="text-4xl md:text-6xl font-bold mb-6"
-            animate={{
-              backgroundPosition: ['0% 50%', '50% 50%', '0% 50%'],
-              backgroundSize: ['200% 200%', '200% 200%', '200% 200%'],
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          >
+          <motion.h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span
               className={`bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent`}
             >
@@ -185,8 +178,6 @@ const Skills = () => {
             The magical tools I use to bring{' '}
             <motion.span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
             >
               ideas to life
             </motion.span>
@@ -221,17 +212,8 @@ const Skills = () => {
                 <motion.div
                   className="mb-4 relative z-10 text-5xl transition-all duration-300"
                   style={{ color: skill.iconColor }}
-                  animate={{
-                    y: [0, -3, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: index * 0.3,
-                    ease: 'easeInOut',
-                  }}
                   whileHover={{
-                    scale: 1.15,
+                    scale: 1.1,
                     filter:
                       'drop-shadow(0 0 15px currentColor) brightness(1.3)',
                   }}
@@ -279,13 +261,7 @@ const Skills = () => {
             <motion.div
               key={index}
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -5 }}
-              animate={{
-                y: [0, -5, 0],
-              }}
-              transition={{
-                y: { duration: 2, repeat: Infinity, delay: index * 0.2 },
-              }}
+              whileHover={{ scale: 1.1, y: -5 }}
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
               <motion.div

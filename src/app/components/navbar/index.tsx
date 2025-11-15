@@ -81,7 +81,7 @@ const Navbar = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`relative flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 font-medium group ${
                 isActive
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg'
                   : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -97,16 +97,6 @@ const Navbar = () => {
                 }`}
               />
               <span className="text-sm">{item.name}</span>
-
-              {/* Active indicator */}
-              {isActive && (
-                <motion.div
-                  className="absolute -bottom-1 left-1/2 w-1 h-1 bg-white rounded-full"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  layoutId="activeIndicator"
-                />
-              )}
             </motion.button>
           );
         })}
