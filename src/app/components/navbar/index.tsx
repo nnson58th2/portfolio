@@ -67,9 +67,13 @@ const Navbar = () => {
   }, []);
 
   const handleNavClick = (href: string) => {
-    const element = document.getElementById(href.substring(1));
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const sectionElement = document.getElementById(href.substring(1));
+    if (sectionElement) {
+      const headerHeight = document.querySelector('header')?.offsetHeight ?? 0;
+      const elementPosition = sectionElement.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
     setIsOpen(false);
   };
@@ -151,8 +155,11 @@ const Navbar = () => {
           className="absolute -bottom-[22px] right-[18px] w-4 h-4 bg-black/95 border-l border-t border-white/20 transform rotate-45 z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: isOpen ? 1 : 0 }}
-          exit={{ opacity: isOpen ? 0 : 1 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          exit={{ opacity: 0 }}
+          transition={{
+            duration: isOpen ? 0.3 : 0,
+            ease: 'easeInOut',
+          }}
         />
         <motion.div
           className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl min-w-[200px] z-40 shadow-2xl overflow-hidden"
@@ -161,10 +168,17 @@ const Navbar = () => {
             height: isOpen ? navItemListHeight : 0,
             opacity: isOpen ? 1 : 0,
           }}
-          exit={{ height: isOpen ? 0 : navItemListHeight, opacity: 0 }}
+          exit={{
+            height: 0,
+            opacity: 0,
+            transition: {
+              height: { duration: 0 },
+              opacity: { duration: 0 },
+            },
+          }}
           transition={{
-            height: { duration: 0.3, ease: 'easeInOut' },
-            opacity: { duration: 0.3, ease: 'easeInOut' },
+            height: { duration: isOpen ? 0.3 : 0, ease: 'easeInOut' },
+            opacity: { duration: isOpen ? 0.3 : 0, ease: 'easeInOut' },
           }}
         >
           <div ref={navItemListRef} className="p-3">
