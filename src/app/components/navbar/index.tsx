@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Menu,
   X,
@@ -23,6 +23,9 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const navItemListRef = useRef<HTMLDivElement>(null);
+
+  const [navItemListHeight, setNavItemListHeight] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -56,6 +59,12 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
+
+  useEffect(() => {
+    if (navItemListRef.current) {
+      setNavItemListHeight(navItemListRef.current.offsetHeight + 2); // + 2 for the border
+    }
+  }, []);
 
   const handleNavClick = (href: string) => {
     const element = document.getElementById(href.substring(1));
@@ -138,10 +147,28 @@ const Navbar = () => {
 
       {/* Mobile Menu (Dropdown) */}
       <AnimatePresence>
-        {isOpen && (
-          <div className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 min-w-[200px] z-50 shadow-2xl">
-            <div className="absolute -top-2 right-4 w-4 h-4 bg-black/95 border-l border-t border-white/20 transform rotate-45"></div>
-            {navItems.map((item, index) => {
+        <motion.div
+          className="absolute -bottom-[22px] right-[18px] w-4 h-4 bg-black/95 border-l border-t border-white/20 transform rotate-45 z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isOpen ? 1 : 0 }}
+          exit={{ opacity: isOpen ? 0 : 1 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl min-w-[200px] z-40 shadow-2xl overflow-hidden"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{
+            height: isOpen ? navItemListHeight : 0,
+            opacity: isOpen ? 1 : 0,
+          }}
+          exit={{ height: isOpen ? 0 : navItemListHeight, opacity: 0 }}
+          transition={{
+            height: { duration: 0.3, ease: 'easeInOut' },
+            opacity: { duration: 0.3, ease: 'easeInOut' },
+          }}
+        >
+          <div ref={navItemListRef} className="p-3">
+            {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.href.substring(1);
 
@@ -149,10 +176,7 @@ const Navbar = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2, delay: index * 0.08 }}
-                  className={`w-full flex items-center space-x-3 py-3 px-4 rounded-xl transition-all duration-300 font-medium relative group ${
+                  className={`w-full flex items-center space-x-3 py-3 px-4 rounded-xl font-medium relative group ${
                     isActive
                       ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
                       : 'text-white'
@@ -171,7 +195,7 @@ const Navbar = () => {
               );
             })}
           </div>
-        )}
+        </motion.div>
       </AnimatePresence>
     </nav>
   );
