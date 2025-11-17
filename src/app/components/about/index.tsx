@@ -78,10 +78,10 @@ const About = () => {
           >
             <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
               <p>
-                Hello! My name is Son Nguyen, my interests and passion are web
-                applications, solving problems in both life and programming. I
-                decided to learn JavaScript and my path as a programmer started
-                from there!
+                Hello! My name is <strong>Son Nguyen</strong>, my interests and
+                passion are web applications, solving problems in both life and
+                programming. I decided to learn JavaScript and my path as a
+                programmer started from there!
               </p>
               <p>
                 My journey has been all about building impactful, user-focused

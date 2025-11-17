@@ -53,31 +53,6 @@ button {
   background-clip: padding-box;
 }
 
-/* Advanced glassmorphism effect */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.glass-strong {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-/* Text selection with gradient */
-::selection {
-  background: linear-gradient(
-    45deg,
-    rgba(59, 130, 246, 0.3),
-    rgba(139, 92, 246, 0.3)
-  );
-  color: #ffffff;
-}
-
 /* Smooth transitions for everything */
 * {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
