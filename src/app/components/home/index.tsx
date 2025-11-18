@@ -131,7 +131,7 @@ const Home = () => {
           className="flex justify-center mb-12"
         >
           <motion.a
-            href="./cv.pdf"
+            href="./son-nguyen-resume.pdf"
             target="_blank"
             className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/20 transition-all duration-300 flex items-center gap-3"
             whileHover={{
