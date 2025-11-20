@@ -150,67 +150,52 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu (Dropdown) */}
-      <AnimatePresence>
-        <motion.div
-          className="absolute -bottom-[22px] right-[18px] w-4 h-4 bg-black/95 border-l border-t border-white/20 transform rotate-45 z-50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isOpen ? 1 : 0 }}
-          exit={{ opacity: 0 }}
-          transition={{
-            duration: isOpen ? 0.3 : 0,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl min-w-[200px] z-40 shadow-2xl overflow-hidden"
-          initial={{ height: 0, opacity: 0 }}
-          animate={{
-            height: isOpen ? navItemListHeight : 0,
-            opacity: isOpen ? 1 : 0,
-          }}
-          exit={{
-            height: 0,
-            opacity: 0,
-            transition: {
-              height: { duration: 0 },
-              opacity: { duration: 0 },
-            },
-          }}
-          transition={{
-            height: { duration: isOpen ? 0.3 : 0, ease: 'easeInOut' },
-            opacity: { duration: isOpen ? 0.3 : 0, ease: 'easeInOut' },
-          }}
-        >
-          <div ref={navItemListRef} className="p-3">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeSection === item.href.substring(1);
+      <motion.div
+        className="absolute -bottom-[22px] right-[18px] w-4 h-4 bg-black/95 border-l border-t border-white/20 transform rotate-45 z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isOpen ? 1 : 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl min-w-[200px] z-40 shadow-2xl overflow-hidden"
+        initial={{ height: 0, opacity: 0 }}
+        animate={{
+          height: isOpen ? navItemListHeight : 0,
+          opacity: isOpen ? 1 : 0,
+        }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ ease: 'easeInOut' }}
+      >
+        <div ref={navItemListRef} className="p-3">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.href.substring(1);
 
-              return (
-                <motion.button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className={`w-full flex items-center space-x-3 py-3 px-4 rounded-xl font-medium relative group ${
+            return (
+              <button
+                key={item.name}
+                onClick={() => handleNavClick(item.href)}
+                className={`w-full flex items-center space-x-3 py-3 px-4 rounded-xl font-medium relative group ${
+                  isActive
+                    ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
+                    : 'text-white'
+                }`}
+              >
+                <Icon
+                  size={18}
+                  className={`${
                     isActive
-                      ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
-                      : 'text-white'
+                      ? 'text-white'
+                      : 'text-white/70 group-hover:text-blue-400'
                   }`}
-                >
-                  <Icon
-                    size={18}
-                    className={`${
-                      isActive
-                        ? 'text-white'
-                        : 'text-white/70 group-hover:text-blue-400'
-                    }`}
-                  />
-                  <span className="relative z-10">{item.name}</span>
-                </motion.button>
-              );
-            })}
-          </div>
-        </motion.div>
-      </AnimatePresence>
+                />
+                <span className="relative z-10">{item.name}</span>
+              </button>
+            );
+          })}
+        </div>
+      </motion.div>
     </nav>
   );
 };
