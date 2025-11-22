@@ -78,18 +78,13 @@ const Home = () => {
           </motion.div>
 
           <div className="relative">
-            <motion.h1
-              className="text-5xl md:text-8xl font-bold mb-6 leading-tight cursor-default select-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            >
-              <motion.span
-                className={`bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent cursor-default`}
+            <h1 className="text-5xl md:text-8xl font-bold mb-6 leading-tight cursor-default select-text">
+              <span
+                className={`bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent`}
               >
                 Software Engineer
-              </motion.span>
-            </motion.h1>
+              </span>
+            </h1>
 
             <motion.div
               className={`h-2 bg-gradient-to-r ${currentTheme.primary} mx-auto rounded-full`}
@@ -100,23 +95,23 @@ const Home = () => {
           </div>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed cursor-default select-text"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed"
+            initial={{ y: 30 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
             I craft{' '}
-            <motion.span
+            <span
               className={`font-bold bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent`}
             >
               beautiful
-            </motion.span>
+            </span>
             ,{' '}
-            <motion.span
+            <span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
             >
               interactive
-            </motion.span>{' '}
+            </span>{' '}
             web experiences with modern technologies.
             <br />
             Passionate about clean code, stunning designs, and seamless user
@@ -141,12 +136,7 @@ const Home = () => {
             }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              📄
-            </motion.div>
+            <span>📄</span>
             Download CV
           </motion.a>
         </motion.div>
@@ -176,12 +166,6 @@ const Home = () => {
               }}
             >
               <social.icon />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
             </motion.a>
           ))}
         </motion.div>
@@ -199,7 +183,7 @@ const Home = () => {
             scale: [1, 1.1, 1],
           }}
           transition={{ duration: 2, repeat: Infinity }}
-          className={`text-3xl bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent cursor-pointer`}
+          className={`flex justify-center text-2xl text-orange-500 bg-clip-text cursor-pointer`}
         >
           <FaArrowDown />
         </motion.div>
