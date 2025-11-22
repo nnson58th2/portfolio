@@ -155,7 +155,7 @@ const Navbar = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: isOpen ? 1 : 0 }}
         exit={{ opacity: 0 }}
-        transition={{ ease: 'easeInOut' }}
+        transition={{ duration: isOpen ? 0.3 : 0, ease: 'easeInOut' }}
       />
       <motion.div
         className="md:hidden absolute top-16 right-0 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl min-w-[200px] z-40 shadow-2xl overflow-hidden"
@@ -165,7 +165,10 @@ const Navbar = () => {
           opacity: isOpen ? 1 : 0,
         }}
         exit={{ height: 0, opacity: 0 }}
-        transition={{ ease: 'easeInOut' }}
+        transition={{
+          height: { duration: isOpen ? 0.3 : 0, ease: 'easeInOut' },
+          opacity: { duration: isOpen ? 0.3 : 0, ease: 'easeInOut' },
+        }}
       >
         <div ref={navItemListRef} className="p-3">
           {navItems.map((item) => {
