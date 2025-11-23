@@ -102,13 +102,13 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <motion.h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span
               className={`bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent`}
             >
               Experience
             </span>
-          </motion.h2>
+          </h2>
           <motion.div
             className={`h-2 bg-gradient-to-r ${currentTheme.secondary} mx-auto rounded-full mb-4`}
             initial={{ width: 0 }}
@@ -124,18 +124,18 @@ const Experience = () => {
             viewport={{ once: true }}
           >
             My professional journey in{' '}
-            <motion.span
+            <span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
             >
-              software development
-            </motion.span>
+              software engineering
+            </span>
           </motion.p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             className="relative"

@@ -22,13 +22,13 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span
               className={`bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent`}
             >
               About Me
             </span>
-          </motion.h2>
+          </h2>
           <motion.div
             className={`h-2 bg-gradient-to-r ${currentTheme.secondary} mx-auto rounded-full mb-4`}
             initial={{ width: 0 }}
@@ -44,11 +44,11 @@ const About = () => {
             viewport={{ once: true }}
           >
             Get to know the person behind the{' '}
-            <motion.span
+            <span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
             >
               code
-            </motion.span>
+            </span>
           </motion.p>
         </motion.div>
 
@@ -60,7 +60,7 @@ const About = () => {
           className="lg:hidden mb-12"
         >
           <div className="relative w-full max-w-sm mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-full blur-3xl opacity-30"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-full blur-3xl opacity-30" />
             <img
               src="/avatar.webp"
               alt="Son Nguyen Avatar"
@@ -96,7 +96,7 @@ const About = () => {
             </div>
             <div className="flex gap-4 mt-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-500">3+</div>
+                <div className="text-2xl font-bold text-orange-500">4+</div>
                 <div className="text-sm text-gray-400">Years Experience</div>
               </div>
               <div className="text-center">

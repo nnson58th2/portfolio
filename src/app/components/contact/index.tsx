@@ -7,6 +7,24 @@ import { motion } from 'framer-motion';
 import { CurrentThemeContext } from '@/app/context/current-theme.context';
 import ContactForm from './form';
 
+const contactSocials = [
+  {
+    icon: FaEnvelope,
+    label: 'Email',
+    value: 'nnson.dev@gmail.com',
+  },
+  {
+    icon: FaLinkedin,
+    label: 'LinkedIn',
+    value: 'son-nguyen98',
+  },
+  {
+    icon: FaGithub,
+    label: 'GitHub',
+    value: 'nnson58th2',
+  },
+];
+
 const Contact = () => {
   const { currentTheme } = useContext(CurrentThemeContext) ?? {};
 
@@ -24,13 +42,13 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6">
             <span
               className={`bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent`}
             >
               Get in Touch
             </span>
-          </motion.h2>
+          </h2>
           <motion.div
             className={`h-1.5 md:h-2 bg-gradient-to-r ${currentTheme.secondary} mx-auto rounded-full mb-4`}
             initial={{ width: 0 }}
@@ -46,11 +64,11 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             Ready to bring your{' '}
-            <motion.span
+            <span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
             >
               ideas to life
-            </motion.span>
+            </span>
             ? Let&apos;s create something amazing together.
           </motion.p>
         </motion.div>
@@ -68,35 +86,17 @@ const Contact = () => {
                 Get in Touch
               </h3>
               <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
-                    <FaEnvelope className="text-white" />
+                {contactSocials.map((social) => (
+                  <div key={social.label} className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+                      <social.icon className="text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-400">{social.label}</p>
+                      <p className="text-white font-medium">{social.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Email</p>
-                    <p className="text-white font-medium">
-                      nnson.dev@gmail.com
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
-                    <FaLinkedin className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">LinkedIn</p>
-                    <p className="text-white font-medium">son-nguyen98</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
-                    <FaGithub className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">GitHub</p>
-                    <p className="text-white font-medium">nnson58th2</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </motion.div>

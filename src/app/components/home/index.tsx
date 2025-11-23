@@ -137,7 +137,7 @@ const Home = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span>📄</span>
-            Download CV
+            Download Resume
           </motion.a>
         </motion.div>
 

@@ -50,14 +50,7 @@ const ContactForm = () => {
       id="contact"
       className="w-full py-16 bg-gradient-to-r from-blue-500 via-blue-400 to-gray-700 text-center z-10"
     >
-      <motion.h2
-        className="text-4xl font-bold mb-6 text-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        Contact Me
-      </motion.h2>
+      <h2 className="text-4xl font-bold mb-6 text-white">Contact Me</h2>
 
       <div className="max-w-4xl mx-auto px-6 py-8 bg-gray-800 bg-opacity-80 border-2 border-gray-600 rounded-lg shadow-xl">
         <form className="space-y-6" onSubmit={handleSubmit}>

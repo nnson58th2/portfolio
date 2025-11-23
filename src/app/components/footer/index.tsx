@@ -63,11 +63,11 @@ const Footer = () => {
               <FaCode className="text-white text-xl md:text-2xl" />
             </motion.div>
             <div className="flex flex-col">
-              <motion.span
+              <span
                 className={`text-xl md:text-2xl font-bold bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent`}
               >
                 Son Nguyen
-              </motion.span>
+              </span>
               <span className="text-xs md:text-sm text-gray-400 font-medium">
                 Software Engineer
               </span>

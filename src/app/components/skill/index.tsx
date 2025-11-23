@@ -134,7 +134,7 @@ const technicalSkills = [
 const stats = [
   { label: 'Technologies', value: `${technicalSkills.length}+`, icon: '🛠️' },
   { label: 'Projects', value: '15+', icon: '🚀' },
-  { label: 'Experience', value: '3+', icon: '⚡' },
+  { label: 'Experience', value: '4+', icon: '⚡' },
   { label: 'Coffee Cups', value: '∞', icon: '☕' },
 ];
 
@@ -154,13 +154,13 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span
               className={`bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent`}
             >
               Skills & Technologies
             </span>
-          </motion.h2>
+          </h2>
           <motion.div
             className={`h-2 bg-gradient-to-r ${currentTheme.secondary} mx-auto rounded-full mb-4`}
             initial={{ width: 0 }}
@@ -176,11 +176,11 @@ const Skills = () => {
             viewport={{ once: true }}
           >
             The magical tools I use to bring{' '}
-            <motion.span
+            <span
               className={`font-bold bg-gradient-to-r ${currentTheme.accent} bg-clip-text text-transparent`}
             >
               ideas to life
-            </motion.span>
+            </span>
           </motion.p>
         </motion.div>
 
@@ -253,7 +253,7 @@ const Skills = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.2 }}
+          transition={{ duration: 0.8, delay: 2 }}
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center"
         >
