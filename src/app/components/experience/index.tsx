@@ -132,106 +132,104 @@ const Experience = () => {
           </motion.p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            {experienceList.map((experience, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          {experienceList.map((experience, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              viewport={{ once: true }}
+              className={`group ${
+                index !== experienceList.length - 1 ? 'pb-8 md:pb-12' : ''
+              }`}
+            >
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                viewport={{ once: true }}
-                className={`relative md:pl-20 group ${
-                  index !== experienceList.length - 1 ? 'pb-8 md:pb-12' : ''
-                }`}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-8 hover:bg-white/10 transition-all duration-300 relative overflow-hidden h-full flex flex-col"
+                whileHover={{
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                  borderColor: 'rgba(255,255,255,0.3)',
+                }}
               >
-                <motion.div
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-8 hover:bg-white/10 transition-all duration-300 relative overflow-hidden h-full flex flex-col"
-                  whileHover={{
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                    borderColor: 'rgba(255,255,255,0.3)',
-                  }}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r ${
+                    index % 2 === 0
+                      ? currentTheme.primary
+                      : currentTheme.secondary
+                  } opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                />
+
+                <h3
+                  className={`text-lg md:text-2xl font-bold mb-2 bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent relative z-10`}
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${
-                      index % 2 === 0
-                        ? currentTheme.primary
-                        : currentTheme.secondary
-                    } opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                  />
+                  {experience.title}
+                </h3>
 
-                  <h3
-                    className={`text-lg md:text-2xl font-bold mb-2 bg-gradient-to-r ${currentTheme.primary} bg-clip-text text-transparent relative z-10`}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 relative z-10">
+                  <span
+                    className={`text-base md:text-lg font-semibold bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent mb-1 md:mb-0`}
                   >
-                    {experience.title}
-                  </h3>
+                    {experience.company}
+                  </span>
+                  <span className="text-gray-400 text-sm md:text-base">
+                    {experience.startDate} - {experience.endDate}
+                  </span>
+                </div>
 
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 relative z-10">
-                    <span
-                      className={`text-base md:text-lg font-semibold bg-gradient-to-r ${currentTheme.secondary} bg-clip-text text-transparent mb-1 md:mb-0`}
+                <ul className="space-y-3 text-gray-300 relative z-10">
+                  {experience.responsibilities.map(
+                    (responsibility, responsibilityIdx) => (
+                      <li
+                        key={responsibilityIdx}
+                        className="flex items-start md:items-start"
+                      >
+                        <span
+                          className={`hidden md:block text-sm mr-3 mt-1.5 w-2 h-2 bg-gradient-to-r ${currentTheme.accent} rounded-full flex-shrink-0`}
+                        />
+                        <span
+                          className="group-hover:text-white transition-colors duration-300 md:ml-0"
+                          dangerouslySetInnerHTML={{ __html: responsibility }}
+                        />
+                      </li>
+                    )
+                  )}
+                </ul>
+
+                <div className="flex flex-wrap gap-2 pt-6 relative z-10">
+                  {experience.projects.map((project, projectIdx) => (
+                    <a
+                      key={projectIdx}
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm underline text-gray-300 hover:text-white transition-all duration-300"
                     >
-                      {experience.company}
+                      {project.name}
+                    </a>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2 pt-6 relative z-10">
+                  {experience.technologies.map((tech, techIdx) => (
+                    <span
+                      key={techIdx}
+                      className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-gray-300 hover:bg-white/20 hover:text-white transition-all duration-300"
+                    >
+                      {tech}
                     </span>
-                    <span className="text-gray-400 text-sm md:text-base">
-                      {experience.startDate} - {experience.endDate}
-                    </span>
-                  </div>
-
-                  <ul className="space-y-3 text-gray-300 relative z-10">
-                    {experience.responsibilities.map(
-                      (responsibility, responsibilityIdx) => (
-                        <li
-                          key={responsibilityIdx}
-                          className="flex items-start md:items-start"
-                        >
-                          <span
-                            className={`hidden md:block text-sm mr-3 mt-1.5 w-2 h-2 bg-gradient-to-r ${currentTheme.accent} rounded-full flex-shrink-0`}
-                          />
-                          <span
-                            className="group-hover:text-white transition-colors duration-300 md:ml-0"
-                            dangerouslySetInnerHTML={{ __html: responsibility }}
-                          />
-                        </li>
-                      )
-                    )}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2 pt-6 relative z-10">
-                    {experience.projects.map((project, projectIdx) => (
-                      <a
-                        key={projectIdx}
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm underline text-gray-300 hover:text-white transition-all duration-300"
-                      >
-                        {project.name}
-                      </a>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 pt-6 relative z-10">
-                    {experience.technologies.map((tech, techIdx) => (
-                      <span
-                        key={techIdx}
-                        className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-gray-300 hover:bg-white/20 hover:text-white transition-all duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
+                  ))}
+                </div>
               </motion.div>
-            ))}
-          </motion.div>
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
