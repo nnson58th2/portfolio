@@ -16,7 +16,7 @@ const contactSocials = [
   {
     icon: FaLinkedin,
     label: 'LinkedIn',
-    value: 'son-nguyen98',
+    value: 'nnson98',
   },
   {
     icon: FaGithub,

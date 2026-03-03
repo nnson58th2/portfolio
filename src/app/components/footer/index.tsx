@@ -15,7 +15,7 @@ const footerSocials = [
   },
   {
     icon: FaLinkedin,
-    href: 'https://www.linkedin.com/in/son-nguyen98/',
+    href: 'https://www.linkedin.com/in/nnson98/',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
