@@ -5,7 +5,7 @@ import Home from '@/app/components/home';
 import About from '@/app/components/about';
 import Experience from '@/app/components/experience';
 import Skills from '@/app/components/skill';
-import Projects from '@/app/components/project';
+// import Projects from '@/app/components/project';
 import Contact from '@/app/components/contact';
 import Footer from '@/app/components/footer';
 import { CurrentThemeProvider } from '@/app/context/current-theme.context';
@@ -19,7 +19,7 @@ const HomePage = () => {
         <About />
         <Experience />
         <Skills />
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
         <Footer />
       </CurrentThemeProvider>
