@@ -15,7 +15,7 @@ const ContactForm = () => {
   const [success, setSuccess] = useState<boolean | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -29,11 +29,12 @@ const ContactForm = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
         {
-          from_name: formData.name,
+          title: 'Contact me from Portfolio',
+          name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       );
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
